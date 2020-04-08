@@ -11,7 +11,7 @@ class Transfer
   end
 
   def valid?
-    if sender.valid? && receiver.valid? && last_transaction != amount
+    if sender.valid? && receiver.valid?
       return true
     else
       return false
