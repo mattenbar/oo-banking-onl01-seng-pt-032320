@@ -11,7 +11,7 @@ class Transfer
   end
 
   def valid?
-    if sender.valid? && receiver.valid?
+    if sender.valid? && receiver.valid? && @last_transaction != @amount
       return true
     else
       return false
@@ -19,7 +19,7 @@ class Transfer
   end
 
   def execute_transaction
-    if valid? && @last_transaction != @amount
+    if valid?
       sender.balance -= amount
       receiver.balance += amount
       @status = "complete"
