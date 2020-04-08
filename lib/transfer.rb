@@ -20,7 +20,7 @@ class Transfer
   end
 
   def execute_transaction
-    if valid? && @@last_transaction != amount
+    if valid?
       #binding.pry
       sender.balance -= amount
       receiver.balance += amount
