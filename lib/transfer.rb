@@ -2,7 +2,7 @@ require "pry"
 class Transfer
   # your code here
   attr_accessor :amount, :sender, :receiver, :status, :last_transaction
-  @@last_transaction = nil
+  @@last_transaction = 0
 
   def initialize(sender, receiver, amount)
     @sender = sender
