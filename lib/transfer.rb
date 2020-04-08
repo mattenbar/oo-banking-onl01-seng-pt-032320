@@ -23,9 +23,9 @@ class Transfer
     if valid? && @@last_transaction != amount
       sender.balance -= amount
       receiver.balance += amount
-      status = "complete"
+      @status = "complete"
     else
-      status = "rejected"
+      @status = "rejected"
     end
 
 
