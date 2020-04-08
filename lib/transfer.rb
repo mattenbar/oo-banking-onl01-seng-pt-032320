@@ -20,7 +20,8 @@ class Transfer
   end
 
   def execute_transaction
-    if valid? && @@last_transaction != amount
+    if valid? && @@last_transaction != @amount
+      @@last_transaction = @amount
       sender.balance -= amount
       receiver.balance += amount
       @status = "complete"
