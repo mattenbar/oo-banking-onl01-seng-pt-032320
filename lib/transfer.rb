@@ -29,4 +29,14 @@ class Transfer
       return "Transaction rejected. Please check your account balance."
     end
   end
+
+  def reverse_transaction
+    sender.balance += @last_transaction
+    receiver.balance -= @last_transaction
+  end
+
+
+
+
+
 end
