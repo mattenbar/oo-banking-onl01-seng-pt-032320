@@ -1,7 +1,6 @@
 class Transfer
   # your code here
-  attr_accessor :amount, :sender, :receiver, :status
-  @@last_transaction = nil
+  attr_accessor :amount, :sender, :receiver, :status, :last_transaction
 
   def initialize(sender, receiver, amount)
     @sender = sender
@@ -19,7 +18,7 @@ class Transfer
   end
 
   def execute_transaction
-    if valid? 
+    if valid? && last_transaction != amount
       sender.balance -= amount
       receiver.balance += amount
       @status = "complete"
@@ -28,9 +27,6 @@ class Transfer
       @status = "rejected"
     end
 
-    def last_transaction
-      @@last_transaction
-    end
 
 
   end
