@@ -21,12 +21,9 @@ class Transfer
 
   def execute_transaction
     if valid? && @@last_transaction != amount
-      binding.pry
       sender.balance -= amount
       receiver.balance += amount
       @status = "complete"
-      @@last_transaction = @amount
-      @amount = 0
     else
       @status = "rejected"
     end
