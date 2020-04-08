@@ -8,6 +8,7 @@ class Transfer
     @receiver = receiver
     @status = "pending"
     @amount = amount
+    @last_transaction = 0
   end
 
   def valid?
@@ -19,7 +20,7 @@ class Transfer
   end
 
   def execute_transaction
-    if valid? && last_transaction != amount
+    if valid? && @last_transaction != amount
       binding.pry
       sender.balance -= amount
       receiver.balance += amount
