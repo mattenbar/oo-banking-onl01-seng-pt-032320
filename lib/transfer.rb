@@ -1,6 +1,7 @@
 class Transfer
   # your code here
   attr_accessor :amount, :sender, :receiver, :status
+  @@last_transaction = nil
 
   def initialize(sender, receiver, amount)
     @sender = sender
@@ -10,7 +11,7 @@ class Transfer
   end
 
   def valid?
-    if sender.valid? && receiver.valid?
+    if sender.valid? && receiver.valid? && last_transaction != amount
       return true
     else
       return false
@@ -25,6 +26,11 @@ class Transfer
     else
       @status = "rejected"
     end
+
+    def last_transaction
+      @@last_transaction
+    end
+
 
   end
 
