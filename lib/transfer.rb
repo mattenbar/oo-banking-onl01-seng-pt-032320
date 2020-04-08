@@ -8,6 +8,7 @@ class Transfer
     @receiver = receiver
     @status = "pending"
     @amount = amount
+    @last_transaction = 0
   end
 
   def valid?
