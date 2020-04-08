@@ -25,7 +25,7 @@ class Transfer
       sender.balance -= amount
       receiver.balance += amount
       @status = "complete"
-      @@last_transaction.to_i = @amount
+      @@last_transaction = @amount
     else
       @status = "rejected"
     end
